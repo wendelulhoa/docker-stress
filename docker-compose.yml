@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  stress_docker:
+    build: .
+    image: minha-imagem
+    deploy:
+      resources:
+        # limits:
+        #   memory: 1024M
+        #   cpus: '1.0'
+        limits:
+          cpus: '1.0'
+          memory: 1500M
+        reservations:
+          cpus: '0.5'
+          memory: 200M
+    command: ["/usr/local/bin/init.sh"]
+     
